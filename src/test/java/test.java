@@ -1,5 +1,7 @@
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 //import static org.assertj.core.api.Assertions.
 
 public class test {
@@ -17,6 +19,15 @@ public class test {
           }
     @Test
     public void test4(){
-        Assert.assertEquals("1",fizzBuzz.isFizzbuss(1));
+        Assert.assertEquals("null",fizzBuzz.isFizzbuss(1));
     }
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
+    @Test
+    public void should_trow_IAE_given_number_le_0() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Invalid input");
+        fizzBuzz.isFizzbuss(0);
+    }
+
 }

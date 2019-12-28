@@ -12,6 +12,9 @@ public class fizzBuzz {
         if (i % 5 == 0) {
             returnValue = "Buzz";
         }
+        if ( i <= 0) {
+            throw new IllegalArgumentException("Invalid input");
+        }
         returnValue = String.valueOf(i);
         return returnValue;
     }
